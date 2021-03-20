@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = styled.div`
+export const GlobalStyles = createGlobalStyle`
   html,
   body,
   div,
@@ -82,6 +82,7 @@ export const GlobalStyles = styled.div`
   mark,
   audio,
   video {
+    font-family: Ubuntu;
     margin: 0;
     padding: 0;
     border: 0;

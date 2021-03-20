@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import NewsApp from './Containers/App/App';
+import NewsApp from './containers/App';
 import { store } from './app/store';
 
 ReactDOM.render(
