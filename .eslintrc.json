@@ -40,7 +40,8 @@
     "no-param-reassign": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/jsx-one-expression-per-line": "off",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "react/prop-types": "off"
   },
   "settings": {
     "import/resolver": {

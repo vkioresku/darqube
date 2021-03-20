@@ -22,9 +22,14 @@ export const Search = styled.div`
     border-radius: 4px;
     box-sizing: border-box;
     padding: 10px 7.5px 10px 30px;
+    border: unset;
 
     &::placeholder {
       color: #686868;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 `;

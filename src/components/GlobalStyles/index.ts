@@ -82,6 +82,7 @@ export const GlobalStyles = createGlobalStyle`
   mark,
   audio,
   video {
+    box-sizing: border-box;
     font-family: Ubuntu;
     margin: 0;
     padding: 0;
