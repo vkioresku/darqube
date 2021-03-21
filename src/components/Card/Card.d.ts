@@ -6,4 +6,6 @@ export type CardProps = {
   summary: string;
   image: string;
   url: string;
+  onBookmark: () => void;
+  bookmarked: boolean;
 };

@@ -126,4 +126,10 @@ export const Card = styled.div<Props>`
       margin-left: 14px;
     }
   }
+
+  .bookmark {
+    background: unset;
+    outline: none;
+    border: none;
+  }
 `;

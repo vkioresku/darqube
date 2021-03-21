@@ -3,6 +3,7 @@ import React from 'react';
 import { ReactComponent as ArrowCircle } from '../../assets/arrow-circle.svg';
 import { ReactComponent as ArrowIcon } from '../../assets/arrow.svg';
 import { ReactComponent as BookmarkIcon } from '../../assets/bookmark.svg';
+import { ReactComponent as BookmarkActiveIcon } from '../../assets/bookmark-active.svg';
 import * as S from './styled';
 
 import { CardProps } from './Card';
@@ -15,6 +16,8 @@ export const Card: React.FC<CardProps> = ({
   summary,
   image,
   url,
+  onBookmark,
+  bookmarked,
 }) => {
   return (
     <S.Card large={large}>
@@ -52,7 +55,13 @@ export const Card: React.FC<CardProps> = ({
           >
             <ArrowIcon className="card-icon" />
           </a>
-          <BookmarkIcon className="card-icon" />
+          <button className="bookmark" onClick={onBookmark} type="button">
+            {bookmarked ? (
+              <BookmarkActiveIcon className="card-icon" />
+            ) : (
+              <BookmarkIcon className="card-icon" />
+            )}
+          </button>
         </div>
       </div>
     </S.Card>
