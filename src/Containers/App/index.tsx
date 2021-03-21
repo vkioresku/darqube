@@ -23,7 +23,7 @@ export const App: React.FC = () => {
       <GlobalStyles />
       <S.App>
         <Layout>
-          <div className="header flex-container space-between align-center">
+          <div className="header">
             <div>
               <Link onClick={resetSearch} to="/">
                 <Tab active={pathname === '/'}>News</Tab>
