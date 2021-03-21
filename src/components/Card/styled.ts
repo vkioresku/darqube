@@ -100,9 +100,10 @@ export const Card = styled.div<Props>`
   }
 
   .separator {
-    height: 100%;
-    width: 1px;
-    background-color: ${rgba(colors.white.base, 0.08)};
+    z-index: 2;
+    height: 20px;
+    width: 2px;
+    background-color: ${rgba(colors.white.base, 0.1)};
     margin: 0 15px;
   }
 
