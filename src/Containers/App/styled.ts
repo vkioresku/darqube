@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const App = styled.div`
-  background-color: #242525;
+  height: 100%;
+
   padding: 25px 0;
 
   .header {

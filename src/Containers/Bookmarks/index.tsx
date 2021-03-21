@@ -32,19 +32,23 @@ export const Bookmarks = () => {
 
   return (
     <S.Bookmarks>
-      {(bookmarks as Bookmark[]).map((item: Bookmark) => (
-        <Card
-          key={item.id}
-          category={item.related || ''}
-          datetime={(item.datetime && convertDate(item.datetime)) || ''}
-          headline={item.headline || ''}
-          summary={item.summary || ''}
-          image={item.image || ''}
-          url={item.url || ''}
-          onBookmark={() => dispatch(removeBookmarkById(item.id))}
-          bookmarked={checkInclude(item as never)}
-        />
-      ))}
+      {bookmarks.length > 0 ? (
+        (bookmarks as Bookmark[]).map((item: Bookmark) => (
+          <Card
+            key={item.id}
+            category={item.related || ''}
+            datetime={(item.datetime && convertDate(item.datetime)) || ''}
+            headline={item.headline || ''}
+            summary={item.summary || ''}
+            image={item.image || ''}
+            url={item.url || ''}
+            onBookmark={() => dispatch(removeBookmarkById(item.id))}
+            bookmarked={checkInclude(item as never)}
+          />
+        ))
+      ) : (
+        <div className="bookmarks-empty">Bookmarks empty.</div>
+      )}
     </S.Bookmarks>
   );
 };

@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  body, html {
+    height: 100%;
+    background: #242525 no-repeat center center fixed;
+    background-size: cover;
+  }
   html,
   body,
   div,
