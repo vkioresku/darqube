@@ -4,7 +4,8 @@ import { colors } from '@Styles';
 
 export const Bookmarks = styled.section`
   display: grid;
-  gap: 20px;
+  justify-items: center;
+  gap: 40px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
   .bookmarks-empty {

@@ -15,4 +15,6 @@ export const Tab = styled.button<Props>`
   cursor: pointer;
   display: inline-block;
   outline: none;
+  padding: 0;
+  margin-right: 22px;
 `;
