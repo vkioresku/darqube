@@ -87,25 +87,30 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
                 bookmarked={checkInclude(item)}
               />
             ))}
-
-        <div className="pages">
-          <div className="flex-container">
-            <div className="range">
-              {page * 6 - 5}-{page * 6 > newsLength ? newsLength : page * 6}
-            </div>
-            <div className="quantity">
-              out of {loading !== 'pending' && newsLength}
-            </div>
-          </div>
-          <div className="flex-container">
-            {page !== 1 && <Button onClick={setPrevPage}>Previous</Button>}
-            {Math.ceil(newsLength / 6) !== page && (
-              <div className="next-btn">
-                <Button onClick={setNextPage}>Next</Button>
+        {loading !== 'pending' && (
+          <div className="pages">
+            <div className="flex-container">
+              <div className="range">
+                {page * 6 - 5}-{page * 6 > newsLength ? newsLength : page * 6}
               </div>
-            )}
+              <div className="quantity">out of {newsLength}</div>
+            </div>
+            <div className="flex-container">
+              {page !== 1 && (
+                <Button type="button" onClick={setPrevPage}>
+                  Previous
+                </Button>
+              )}
+              {Math.ceil(newsLength / 6) !== page && (
+                <div className="next-btn">
+                  <Button type="button" onClick={setNextPage}>
+                    Next
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </S.News>
   );
