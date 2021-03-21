@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { ReactComponent as SearchIcon } from '../../../assets/search.svg';
 import * as S from './styled';
 
-export const Search = () => {
-  const [search, setSearch] = useState('');
+import { SearchProps } from './Search';
 
+export const Search: React.FC<SearchProps> = ({ search, setSearch }) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(e.target.value);
 

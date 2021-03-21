@@ -40,10 +40,16 @@ export const Card: React.FC<CardProps> = ({
           )}
           <div className="date">{datetime}</div>
           <div className="separator" />
-          <div className="duration">6 min read</div>
+          <div className="duration">
+            {Math.floor(Math.random() * 10)} min read
+          </div>
         </div>
         <div className="flex-container">
-          <a href={url} target="_blank" rel="noreferrer">
+          <a
+            href={`https://www.facebook.com/sharer.php?u=${url}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             <ArrowIcon className="card-icon" />
           </a>
           <BookmarkIcon className="card-icon" />

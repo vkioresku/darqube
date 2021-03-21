@@ -79,6 +79,7 @@ export const Card = styled.div<Props>`
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    opacity: 0.5;
   }
 
   .explore {
