@@ -1,8 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-import newsReducer from '../containers/News/newsSlice';
-import paginationReducer from '../containers/News/paginationSlice';
-import bookmarksReducer from '../containers/Bookmarks/bookmarksSlice';
+import newsReducer from '@Containers/News/newsSlice';
+import paginationReducer from '@Containers/News/paginationSlice';
+import bookmarksReducer from '@Containers/Bookmarks/bookmarksSlice';
 
 export const store = configureStore({
   reducer: {
