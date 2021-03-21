@@ -68,6 +68,13 @@ export const Card = styled.div<Props>`
     cursor: pointer;
     color: ${colors.white.base};
     align-self: end;
+    text-decoration: none;
+
+    &:hover {
+      .title {
+        text-decoration: underline;
+      }
+    }
   }
 
   .title {

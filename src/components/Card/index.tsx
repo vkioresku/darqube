@@ -26,10 +26,10 @@ export const Card: React.FC<CardProps> = ({
         <div className="category">{category}</div>
         {large && <div className="tag">latest research</div>}
       </div>
-      <div className="content">
+      <a href={url} target="_blank" rel="noreferrer" className="content">
         <div className="title">{headline}</div>
         <div className="summary">{summary}</div>
-      </div>
+      </a>
       <div className="bottom-content">
         <div className="flex-container">
           {large && (
@@ -43,9 +43,7 @@ export const Card: React.FC<CardProps> = ({
           )}
           <div className="date">{datetime}</div>
           <div className="separator" />
-          <div className="duration">
-            {Math.floor(Math.random() * 10)} min read
-          </div>
+          <div className="duration">6 min read</div>
         </div>
         <div className="flex-container">
           <a
