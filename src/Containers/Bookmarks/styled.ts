@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { colors } from '@Styles';
+
 export const Bookmarks = styled.section`
   display: grid;
   gap: 20px;
@@ -7,7 +9,7 @@ export const Bookmarks = styled.section`
 
   .bookmarks-empty {
     margin-top: 200px;
-    color: #fff;
+    color: ${colors.white.base};
     grid-column: 1 / -1;
     font-size: 40px;
     width: 100%;

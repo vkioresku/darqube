@@ -26,7 +26,8 @@
       "@Components/*": ["./components/*"],
       "@Containers": ["./containers"],
       "@Containers/*": ["./containers/*"],
-      "@Types": ["./types"]
+      "@Types": ["./types"],
+      "@Styles": ["./styles"]
     }
   },
   "include": ["src"]

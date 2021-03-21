@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { rgba } from 'polished';
+
+import { colors } from '@Styles';
 
 type Props = {
   large?: boolean;
@@ -12,7 +15,7 @@ export const Card = styled.div<Props>`
   grid-template-rows: max-content 1fr max-content;
   width: ${({ large }) => (large ? '475px' : '280px')};
   height: ${({ large }) => (large ? '625px' : '425px')};
-  background: rgba(6, 7, 8, 0.5);
+  background: ${rgba(colors.black.base, 0.5)};
   padding: 25px;
   border-radius: 6px;
   overflow: unset;
@@ -35,18 +38,18 @@ export const Card = styled.div<Props>`
 
   .category {
     z-index: 2;
-    color: #fff;
+    color: ${colors.white.base};
     font-size: 10px;
     padding: 5px 10px;
     border-radius: 6px;
-    border: 1px solid #fff;
+    border: 1px solid ${colors.white.base};
   }
 
   .tag {
     z-index: 2;
-    color: #fff;
+    color: ${colors.white.base};
     margin-left: auto;
-    background-color: #931636;
+    background-color: ${colors.red.base};
     padding: 5px 10px;
     font-size: 8px;
     font-weight: 700;
@@ -63,7 +66,7 @@ export const Card = styled.div<Props>`
   .content {
     z-index: 2;
     cursor: pointer;
-    color: #fff;
+    color: ${colors.white.base};
     align-self: end;
   }
 
@@ -83,7 +86,7 @@ export const Card = styled.div<Props>`
   }
 
   .explore {
-    color: #fff;
+    color: ${colors.white.base};
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -93,24 +96,24 @@ export const Card = styled.div<Props>`
     width: 20px;
     height: 20px;
     margin-right: 11px;
-    fill: rgba(255, 255, 255, 0.25);
+    fill: ${rgba(colors.white.base, 0.25)};
   }
 
   .separator {
     height: 100%;
     width: 1px;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: ${rgba(colors.white.base, 0.08)};
     margin: 0 15px;
   }
 
   .date {
-    color: #fff;
+    color: ${colors.white.base};
     opacity: 0.75;
     font-size: 13px;
   }
 
   .duration {
-    color: #fff;
+    color: ${colors.white.base};
     opacity: 0.35;
     font-size: 12px;
     font-weight: 700;
@@ -120,7 +123,7 @@ export const Card = styled.div<Props>`
     cursor: pointer;
     width: 13px;
     height: 13px;
-    fill: rgba(255, 255, 255, 0.5);
+    fill: ${rgba(colors.white.base, 0.5)};
 
     &:not(:first-child) {
       margin-left: 14px;

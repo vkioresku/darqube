@@ -1,20 +1,16 @@
 import styled from 'styled-components';
+import { rgba } from 'polished';
+
+import { colors } from '@Styles';
 
 export const News = styled.section`
+  display: flex;
   .header {
     margin-bottom: 30px;
   }
 
   .flex-container {
     display: flex;
-  }
-
-  .space-between {
-    justify-content: space-between;
-  }
-
-  .align-center {
-    align-items: center;
   }
 
   .cards-container {
@@ -27,6 +23,9 @@ export const News = styled.section`
 
   .pages {
     grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .latest {
@@ -34,14 +33,14 @@ export const News = styled.section`
   }
 
   .range {
-    color: #fff;
+    color: ${colors.white.base};
     font-size: 12px;
   }
 
   .quantity {
     font-size: 12px;
     margin-left: 8px;
-    color: rgba(255, 255, 255, 0.25);
+    color: ${rgba(colors.white.base, 0.25)};
   }
 
   .next-btn {

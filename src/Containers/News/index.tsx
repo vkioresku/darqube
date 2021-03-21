@@ -50,7 +50,7 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
   };
 
   return (
-    <S.News className="flex-container">
+    <S.News>
       <div className="latest">
         {loading !== 'pending' &&
           news
@@ -88,7 +88,7 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
               />
             ))}
 
-        <div className="pages flex-container space-between align-center">
+        <div className="pages">
           <div className="flex-container">
             <div className="range">
               {page * 6 - 5}-{page * 6 > newsLength ? newsLength : page * 6}

@@ -10,7 +10,8 @@ module.exports = function override(config) {
     '@Components/*': 'src/components/*',
     '@Containers': 'src/containers',
     '@Containers/*': 'src/containers/*',
-    '@Types': './types',
+    '@Types': 'src/types',
+    '@Styles': 'src/styles',
   })(config);
 
   return config;
