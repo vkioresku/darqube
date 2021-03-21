@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import date from 'date-and-time';
 
-import { selectNews } from '../App/newsSlice';
+import { selectNews } from './newsSlice';
+import {
+  selectBookmarks,
+  addBookmark,
+  removeBookmark,
+} from '../Bookmarks/bookmarksSlice';
 import { Card } from '../../components';
 import { Button } from '../../components/basic';
 import * as S from './styled';
 
 import { NewsProps } from './News';
 
+type Bookmark = {
+  category?: string;
+  datetime?: number;
+  headline?: string;
+  id?: number;
+  image?: string;
+  related?: string;
+  source?: string;
+  summary?: string;
+  url?: string;
+};
+
 export const News: React.FC<NewsProps> = ({ searchInput }) => {
+  const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const { news, loading } = useSelector(selectNews);
+  const { bookmarks } = useSelector(selectBookmarks);
 
   const nextPage = () => setPage(page + 1);
   const prevPage = () => setPage(page - 1);
@@ -30,6 +49,13 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
             item.summary.toLowerCase().includes(searchInput.toLowerCase())),
     );
   const newsLength = search().length;
+  const manipulateBookmarks = (bookmark: Bookmark) => {
+    if (bookmarks.includes(bookmark)) {
+      dispatch(addBookmark);
+    } else {
+      dispatch(removeBookmark);
+    }
+  };
 
   return (
     <S.News className="flex-container">
@@ -37,16 +63,17 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
         {loading !== 'pending' &&
           news
             .filter((item, idx) => idx < 1)
-            .map(({ datetime, headline, id, image, related, summary, url }) => (
+            .map((item) => (
               <Card
-                key={id}
+                key={item.id}
                 large
-                category={related || ''}
-                datetime={(datetime && convertDate(datetime)) || ''}
-                headline={headline || ''}
-                summary={summary || ''}
-                image={image || ''}
-                url={url || ''}
+                category={item.related || ''}
+                datetime={(item.datetime && convertDate(item.datetime)) || ''}
+                headline={item.headline || ''}
+                summary={item.summary || ''}
+                image={item.image || ''}
+                url={item.url || ''}
+                onBookmark={() => manipulateBookmarks(item)}
               />
             ))}
       </div>
@@ -63,6 +90,7 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
                 image={image || ''}
                 summary={summary || ''}
                 url={url || ''}
+                onBookmark={() => console.log('asd')}
               />
             ))}
 

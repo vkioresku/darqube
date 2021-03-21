@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { fetchNews } from './newsSlice';
+import { fetchNews } from '../News/newsSlice';
 import { News } from '../News';
 import { Bookmarks } from '../Bookmarks';
 import { GlobalStyles, Layout } from '../../components';

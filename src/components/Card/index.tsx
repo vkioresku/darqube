@@ -15,6 +15,7 @@ export const Card: React.FC<CardProps> = ({
   summary,
   image,
   url,
+  onBookmark,
 }) => {
   return (
     <S.Card large={large}>
@@ -52,7 +53,9 @@ export const Card: React.FC<CardProps> = ({
           >
             <ArrowIcon className="card-icon" />
           </a>
-          <BookmarkIcon className="card-icon" />
+          <button className="bookmark" onClick={onBookmark} type="button">
+            <BookmarkIcon className="card-icon" />
+          </button>
         </div>
       </div>
     </S.Card>
