@@ -14,4 +14,5 @@ export const Tab = styled.button<Props>`
   font-weight: 700;
   cursor: pointer;
   display: inline-block;
+  outline: none;
 `;
