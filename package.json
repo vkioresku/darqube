@@ -63,5 +63,13 @@
     "prettier": "^2.2.1",
     "react-app-rewire-alias": "^1.0.1",
     "react-app-rewired": "^2.1.8"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@Styles/(.*)": "<rootDir>/src/styles/$1",
+      "@Styles": "<rootDir>/src/styles",
+      "^@Assets/(.*)": "<rootDir>/src/assets/$1",
+      "@Assets": "<rootDir>/src/assets"
+    }
   }
 }
