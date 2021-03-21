@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { fetchNews } from '../News/newsSlice';
-import { News } from '../News';
-import { Bookmarks } from '../Bookmarks';
-import { GlobalStyles, Layout } from '../../components';
-import { Search, Tab } from '../../components/basic';
+// import { News } from '@Containers';
+import { News, Bookmarks } from '@Containers';
+import { fetchNews } from '@Containers/News/newsSlice';
+import { GlobalStyles, Layout } from '@Components';
+import { Search, Tab } from '@Components/basic';
 import * as S from './styled';
 
 const App = () => {

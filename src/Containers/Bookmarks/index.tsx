@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import date from 'date-and-time';
 
-import { Card } from '../../components/Card';
+import { Card } from '@Components';
 import { selectBookmarks, removeBookmarkById } from './bookmarksSlice';
 
 import * as S from './styled';

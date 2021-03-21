@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReactComponent as SearchIcon } from '../../../assets/search.svg';
+import { ReactComponent as SearchIcon } from '@Assets/search.svg';
 import * as S from './styled';
 
 import { SearchProps } from './Search';

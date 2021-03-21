@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ReactComponent as ArrowCircle } from '../../assets/arrow-circle.svg';
-import { ReactComponent as ArrowIcon } from '../../assets/arrow.svg';
-import { ReactComponent as BookmarkIcon } from '../../assets/bookmark.svg';
-import { ReactComponent as BookmarkActiveIcon } from '../../assets/bookmark-active.svg';
+import { ReactComponent as ArrowCircle } from '@Assets/arrow-circle.svg';
+import { ReactComponent as ArrowIcon } from '@Assets/arrow.svg';
+import { ReactComponent as BookmarkIcon } from '@Assets/bookmark.svg';
+import { ReactComponent as BookmarkActiveIcon } from '@Assets/bookmark-active.svg';
 import * as S from './styled';
 
 import { CardProps } from './Card';

@@ -2,15 +2,15 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import date from 'date-and-time';
 
-import { selectNews } from './newsSlice';
 import {
   selectBookmarks,
   addBookmark,
   removeBookmarkById,
-} from '../Bookmarks/bookmarksSlice';
+} from '@Containers/Bookmarks/bookmarksSlice';
+import { Card } from '@Components';
+import { Button } from '@Components/basic';
+import { selectNews } from './newsSlice';
 import { nextPage, prevPage, selectPagination } from './paginationSlice';
-import { Card } from '../../components';
-import { Button } from '../../components/basic';
 import * as S from './styled';
 
 import { NewsProps } from './News';
