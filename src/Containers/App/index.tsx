@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-// import { News } from '@Containers';
 import { News, Bookmarks } from '@Containers';
 import { fetchNews } from '@Containers/News/newsSlice';
 import { GlobalStyles, Layout } from '@Components';
 import { Search, Tab } from '@Components/basic';
 import * as S from './styled';
 
-const App = () => {
+export const App: React.FC = () => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -52,5 +51,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;

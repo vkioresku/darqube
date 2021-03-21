@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import NewsApp from './containers/App';
-import { store } from './app/store';
+import { store } from '@App/store';
+import { App } from '@Containers';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <NewsApp />
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

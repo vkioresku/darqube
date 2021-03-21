@@ -1,20 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AppThunk, RootState } from '../../app/store';
-
-type News = {
-  category?: string;
-  datetime?: number;
-  headline?: string;
-  id?: number;
-  image?: string;
-  related?: string;
-  source?: string;
-  summary?: string;
-  url?: string;
-}[];
+import { AppThunk, RootState } from '@App/store';
+import { News } from '@Types';
 
 type NewsState = {
-  news: News | [];
+  news: News[] | [];
   loading: 'idle' | 'pending';
 };
 

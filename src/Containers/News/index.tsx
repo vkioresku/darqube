@@ -7,6 +7,7 @@ import {
   addBookmark,
   removeBookmarkById,
 } from '@Containers/Bookmarks/bookmarksSlice';
+import { News as NewsType } from '@Types';
 import { Card } from '@Components';
 import { Button } from '@Components/basic';
 import { selectNews } from './newsSlice';
@@ -14,18 +15,6 @@ import { nextPage, prevPage, selectPagination } from './paginationSlice';
 import * as S from './styled';
 
 import { NewsProps } from './News';
-
-type Bookmark = {
-  category?: string;
-  datetime?: number;
-  headline?: string;
-  id?: number;
-  image?: string;
-  related?: string;
-  source?: string;
-  summary?: string;
-  url?: string;
-};
 
 export const News: React.FC<NewsProps> = ({ searchInput }) => {
   const dispatch = useDispatch();
@@ -50,9 +39,9 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
             item.summary.toLowerCase().includes(searchInput.toLowerCase())),
     );
   const newsLength = search().length;
-  const checkInclude = (bookmark: Bookmark) =>
+  const checkInclude = (bookmark: NewsType) =>
     bookmarks.includes(bookmark as never);
-  const manipulateBookmarks = (bookmark: Bookmark) => {
+  const manipulateBookmarks = (bookmark: NewsType) => {
     if (checkInclude(bookmark)) {
       dispatch(removeBookmarkById(bookmark.id));
     } else {

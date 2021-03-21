@@ -1,20 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
-
-type Bookmark = {
-  category?: string;
-  datetime?: number;
-  headline?: string;
-  id?: number;
-  image?: string;
-  related?: string;
-  source?: string;
-  summary?: string;
-  url?: string;
-};
+import { RootState } from '@App/store';
+import { News } from '@Types';
 
 type BookmarksState = {
-  bookmarks: Array<Bookmark> | [];
+  bookmarks: News[] | [];
 };
 
 const initialState = {

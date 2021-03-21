@@ -2,24 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import date from 'date-and-time';
 
+import { News } from '@Types';
 import { Card } from '@Components';
 import { selectBookmarks, removeBookmarkById } from './bookmarksSlice';
 
 import * as S from './styled';
 
 import { BookmarksProps } from './Bookmarks';
-
-type Bookmark = {
-  category?: string;
-  datetime?: number;
-  headline?: string;
-  id?: number;
-  image?: string;
-  related?: string;
-  source?: string;
-  summary?: string;
-  url?: string;
-};
 
 export const Bookmarks: React.FC<BookmarksProps> = ({ searchInput }) => {
   const dispatch = useDispatch();
@@ -29,7 +18,7 @@ export const Bookmarks: React.FC<BookmarksProps> = ({ searchInput }) => {
     const stamp = new Date(timestamp * 1000);
     return date.format(stamp, 'DD MMM');
   };
-  const checkInclude = (bookmark: Bookmark) =>
+  const checkInclude = (bookmark: News) =>
     bookmarks.includes(bookmark as never);
 
   const search = () =>
@@ -44,7 +33,7 @@ export const Bookmarks: React.FC<BookmarksProps> = ({ searchInput }) => {
   return (
     <S.Bookmarks>
       {bookmarks.length > 0 ? (
-        search().map((item: Bookmark) => (
+        search().map((item: News) => (
           <Card
             key={item.id}
             category={item.related || ''}

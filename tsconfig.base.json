@@ -19,12 +19,14 @@
 
     "paths": {
       "@App": ["./app"],
+      "@App/*": ["./app/*"],
       "@Assets": ["./assets"],
       "@Assets/*": ["./assets/*"],
       "@Components": ["./components"],
       "@Components/*": ["./components/*"],
       "@Containers": ["./containers"],
-      "@Containers/*": ["./containers/*"]
+      "@Containers/*": ["./containers/*"],
+      "@Types": ["./types"]
     }
   },
   "include": ["src"]
