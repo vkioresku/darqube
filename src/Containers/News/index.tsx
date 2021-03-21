@@ -6,7 +6,7 @@ import { selectNews } from './newsSlice';
 import {
   selectBookmarks,
   addBookmark,
-  removeBookmark,
+  removeBookmarkById,
 } from '../Bookmarks/bookmarksSlice';
 import { Card } from '../../components';
 import { Button } from '../../components/basic';
@@ -49,11 +49,13 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
             item.summary.toLowerCase().includes(searchInput.toLowerCase())),
     );
   const newsLength = search().length;
+  const checkInclude = (bookmark: Bookmark) =>
+    bookmarks.includes(bookmark as never);
   const manipulateBookmarks = (bookmark: Bookmark) => {
-    if (bookmarks.includes(bookmark)) {
-      dispatch(addBookmark);
+    if (checkInclude(bookmark)) {
+      dispatch(removeBookmarkById(bookmark.id));
     } else {
-      dispatch(removeBookmark);
+      dispatch(addBookmark(bookmark));
     }
   };
 
@@ -73,7 +75,8 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
                 summary={item.summary || ''}
                 image={item.image || ''}
                 url={item.url || ''}
-                onBookmark={() => manipulateBookmarks(item)}
+                onBookmark={() => manipulateBookmarks(item as never)}
+                bookmarked={checkInclude(item)}
               />
             ))}
       </div>
@@ -81,16 +84,17 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
         {loading !== 'pending' &&
           search()
             .filter((item, idx) => paginate(idx))
-            .map(({ datetime, headline, id, image, related, summary, url }) => (
+            .map((item) => (
               <Card
-                key={id}
-                category={related || ''}
-                datetime={(datetime && convertDate(datetime)) || ''}
-                headline={headline || ''}
-                image={image || ''}
-                summary={summary || ''}
-                url={url || ''}
-                onBookmark={() => console.log('asd')}
+                key={item.id}
+                category={item.related || ''}
+                datetime={(item.datetime && convertDate(item.datetime)) || ''}
+                headline={item.headline || ''}
+                image={item.image || ''}
+                summary={item.summary || ''}
+                url={item.url || ''}
+                onBookmark={() => manipulateBookmarks(item)}
+                bookmarked={checkInclude(item)}
               />
             ))}
 

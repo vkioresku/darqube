@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-type Bookmarks = {
+type Bookmark = {
   category?: string;
   datetime?: number;
   headline?: string;
@@ -11,10 +11,10 @@ type Bookmarks = {
   source?: string;
   summary?: string;
   url?: string;
-}[];
+};
 
 type BookmarksState = {
-  bookmarks: Bookmarks[] | [];
+  bookmarks: Array<Bookmark> | [];
 };
 
 const initialState = {
@@ -28,14 +28,15 @@ export const bookmarksSlice = createSlice({
     addBookmark(state, action) {
       state.bookmarks = [...state.bookmarks, action.payload];
     },
-    removeBookmark(state, action) {
-      const incomingIdx = state.bookmarks.findIndex(action.payload);
-      state.bookmarks = state.bookmarks.splice(0, incomingIdx);
+    removeBookmarkById(state, action) {
+      state.bookmarks = state.bookmarks.filter(
+        (item) => item.id !== action.payload,
+      );
     },
   },
 });
 
-export const { addBookmark, removeBookmark } = bookmarksSlice.actions;
+export const { addBookmark, removeBookmarkById } = bookmarksSlice.actions;
 
 export const selectBookmarks = (state: RootState) => state.bookmarks;
 
