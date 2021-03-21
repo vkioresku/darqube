@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import date from 'date-and-time';
 
@@ -8,6 +8,7 @@ import {
   addBookmark,
   removeBookmarkById,
 } from '../Bookmarks/bookmarksSlice';
+import { nextPage, prevPage, selectPagination } from './paginationSlice';
 import { Card } from '../../components';
 import { Button } from '../../components/basic';
 import * as S from './styled';
@@ -28,12 +29,12 @@ type Bookmark = {
 
 export const News: React.FC<NewsProps> = ({ searchInput }) => {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(1);
   const { news, loading } = useSelector(selectNews);
+  const { page } = useSelector(selectPagination);
   const { bookmarks } = useSelector(selectBookmarks);
 
-  const nextPage = () => setPage(page + 1);
-  const prevPage = () => setPage(page - 1);
+  const setNextPage = () => dispatch(nextPage());
+  const setPrevPage = () => dispatch(prevPage());
   const convertDate = (timestamp: number) => {
     const stamp = new Date(timestamp * 1000);
     return date.format(stamp, 'DD MMM');
@@ -108,10 +109,10 @@ export const News: React.FC<NewsProps> = ({ searchInput }) => {
             </div>
           </div>
           <div className="flex-container">
-            {page !== 1 && <Button onClick={prevPage}>Previous</Button>}
+            {page !== 1 && <Button onClick={setPrevPage}>Previous</Button>}
             {Math.ceil(newsLength / 6) !== page && (
               <div className="next-btn">
-                <Button onClick={nextPage}>Next</Button>
+                <Button onClick={setNextPage}>Next</Button>
               </div>
             )}
           </div>

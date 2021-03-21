@@ -13,6 +13,7 @@ const App = () => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const resetSearch = () => setSearch('');
 
   useEffect(() => {
     dispatch(fetchNews());
@@ -25,10 +26,10 @@ const App = () => {
         <Layout>
           <div className="header flex-container space-between align-center">
             <div>
-              <Link to="/">
+              <Link onClick={resetSearch} to="/">
                 <Tab active={pathname === '/'}>News</Tab>
               </Link>
-              <Link to="bookmarks">
+              <Link onClick={resetSearch} to="bookmarks">
                 <Tab active={pathname === '/bookmarks'}>Bookmarks</Tab>
               </Link>
             </div>
@@ -40,7 +41,10 @@ const App = () => {
               path="/"
               component={() => <News searchInput={search} />}
             />
-            <Route path="/bookmarks" component={Bookmarks} />
+            <Route
+              path="/bookmarks"
+              component={() => <Bookmarks searchInput={search} />}
+            />
             <Redirect to="/" />
           </Switch>
         </Layout>

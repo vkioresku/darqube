@@ -7,6 +7,8 @@ import { selectBookmarks, removeBookmarkById } from './bookmarksSlice';
 
 import * as S from './styled';
 
+import { BookmarksProps } from './Bookmarks';
+
 type Bookmark = {
   category?: string;
   datetime?: number;
@@ -19,7 +21,7 @@ type Bookmark = {
   url?: string;
 };
 
-export const Bookmarks = () => {
+export const Bookmarks: React.FC<BookmarksProps> = ({ searchInput }) => {
   const dispatch = useDispatch();
   const { bookmarks } = useSelector(selectBookmarks);
 
@@ -30,10 +32,19 @@ export const Bookmarks = () => {
   const checkInclude = (bookmark: Bookmark) =>
     bookmarks.includes(bookmark as never);
 
+  const search = () =>
+    bookmarks.filter((item) =>
+      searchInput === ''
+        ? item
+        : (item.headline &&
+            item.headline.toLowerCase().includes(searchInput.toLowerCase())) ||
+          (item.summary &&
+            item.summary.toLowerCase().includes(searchInput.toLowerCase())),
+    );
   return (
     <S.Bookmarks>
       {bookmarks.length > 0 ? (
-        (bookmarks as Bookmark[]).map((item: Bookmark) => (
+        search().map((item: Bookmark) => (
           <Card
             key={item.id}
             category={item.related || ''}
