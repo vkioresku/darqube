@@ -7,15 +7,25 @@ import * as S from './styled';
 
 import { CardProps } from './Card';
 
-export const Card: React.FC<CardProps> = ({ large }) => {
+export const Card: React.FC<CardProps> = ({
+  large,
+  category,
+  datetime,
+  headline,
+  summary,
+  image,
+  url,
+}) => {
   return (
     <S.Card large={large}>
+      <img className="card-image" src={image} alt={headline} />
       <div className="flex-container">
-        <div className="category">weekly brief</div>
+        <div className="category">{category}</div>
         {large && <div className="tag">latest research</div>}
       </div>
-      <div className="title">
-        The trend is your friend! Is this a new bubble?
+      <div className="content">
+        <div className="title">{headline}</div>
+        <div className="summary">{summary}</div>
       </div>
       <div className="bottom-content">
         <div className="flex-container">
@@ -28,12 +38,14 @@ export const Card: React.FC<CardProps> = ({ large }) => {
               <div className="separator" />
             </>
           )}
-          <div className="date">17 Feb</div>
+          <div className="date">{datetime}</div>
           <div className="separator" />
           <div className="duration">6 min read</div>
         </div>
         <div className="flex-container">
-          <ArrowIcon className="card-icon" />
+          <a href={url} target="_blank" rel="noreferrer">
+            <ArrowIcon className="card-icon" />
+          </a>
           <BookmarkIcon className="card-icon" />
         </div>
       </div>
